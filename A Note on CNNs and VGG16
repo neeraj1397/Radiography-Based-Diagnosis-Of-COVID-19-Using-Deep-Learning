@@ -1,0 +1,13 @@
+A Note on CNNs and VGG16
+One of the challenges of Computer Vision problems is that the number of inputs to layers of a Neural Network can get really big. For example, the number of input 
+parameters from a 1MP image is 3 million and if the first hidden layer of the neural network has 1000 neurons, the weight matrix of this layer has the dimensions, 
+1000x3M summing up to 3 billion weights. So, the computation cost and memory requirements are huge if a normal neural network is trained with images. Convolutional 
+Neural Networks solve this problem by employing 'Convolution' as their key operation.
+
+A remarkable thing about VGG16 is that it has much simpler structure and lesser hyperparameters when compared with other CNN architectures. It uses a 3x3 convolutional 
+filter with a stride of 1 and 2x2 Max Pooling filter with a stride of 2 in all the layers. The padding is also same for all the layers. The relative uniformity of the 
+architecture made VGG16 a quite attractive choice to researchers. The network has 13 convolutional layers and five max pooling layers. It comes with three fully 
+connected layers towards the end followed by a Softmax layer that was originally intended to classify 1000 different classes from the ImageNet database. The number 
+16 in the title signifies 13 convolutional + 3 fully connected layers. All the hidden layers are activated by ReLU function. Our model takes the pre-trained VGG16 CNN, 
+replaces the original fully connected layers of 4096 nodes with fully connected layers of 256 nodes as shown in Fig. 8. The initial 13 Conv layers and pooling layers 
+together act as feature extractors for the obtained dataset of X-ray images.
